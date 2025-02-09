@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas de Poemas Românticos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="date"] {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e65c41;
+        }
+        .poem {
+            margin-top: 20px;
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastre a pessoa amada para Receber Poemas Românticos</h1>
+        <form id="signupForm">
+            <label for="apelido">Apelido:</label>
+            <input type="text" id="apelido" name="apelido" required>
+
+            <label for="dataNascimento">Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" name="dataNascimento" required>
+
+            <label for="dataInicioNamoro">Data de Início do Namoro:</label>
+            <input type="date" id="dataInicioNamoro" name="dataInicioNamoro" required>
+
+            <button type="submit">Cadastrar e Receber Poema</button>
+        </form>
+        <div class="poem" id="poemDisplay"></div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const apelido = document.getElementById('apelido').value;
+            const dataNascimento = document.getElementById('dataNascimento').value;
+            const dataInicioNamoro = document.getElementById('dataInicioNamoro').value;
+
+            if (apelido && dataNascimento && dataInicioNamoro) {
+                const poemText = `
+                    Para você, ${apelido},\n
+                    Nosso amor é como um jardim que floresce,\n
+                    Cada dia ao seu lado é uma nova promessa,\n
+                    Desde ${dataInicioNamoro}, nosso coração tem se expressado.\n
+                    Que este amor dure por toda a vida!\n
+                `;
+
+                document.getElementById('poemDisplay').innerText = poemText;
+                document.getElementById('poemDisplay').style.display = 'block';
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+    </script>
+</body>
+</html>
